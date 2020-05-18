@@ -1,0 +1,94 @@
+<div class="container-fluid p-2">
+    <div class="card">
+        <div class="card-header p-1 pt-2 pl-2">
+            <h2>Feedbacks</h2>
+        </div>
+        <!-- <div fxLayout fxLayoutAlign="center center">
+    <mat-form-field fxFlex="40%">
+      <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div> -->
+        <h2 class="ml-2 mb-1 mt-2">Quarterly Performance Reviews</h2>
+        <div class="mat-elevation-z8  ml-2 mr-2 w-90">
+            <table mat-table [dataSource]="dataSource" class="w-100">
+                <ng-container matColumnDef="revieweeName">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let myReview"> {{myReview.revieweeName}} </td>
+                </ng-container>
+                <ng-container matColumnDef="revieweeEmail">
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let myReview"> {{myReview.revieweeEmail}} </td>
+                </ng-container>
+                <ng-container matColumnDef="feedbackName">
+                    <th mat-header-cell *matHeaderCellDef> Feedback Name </th>
+                    <td mat-cell *matCellDef="let myReview"> {{myReview.feedbackName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="comments">
+                    <th mat-header-cell *matHeaderCellDef> Comments </th>
+                    <td mat-cell *matCellDef="let myReview"> {{myReview.comments}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="rating">
+                    <th mat-header-cell *matHeaderCellDef> Rating </th>
+                    <td mat-cell *matCellDef="let myReview"> {{myReview.rating}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                    <td mat-cell *matCellDef="let myReview"> {{myReview.status}} </td>
+                </ng-container>
+                <ng-container matColumnDef="createdDate">
+                    <th mat-header-cell *matHeaderCellDef> Created Date </th>
+                    <td mat-cell *matCellDef="let myReview"> {{myReview.createdDate}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="edit">
+                    <th mat-header-cell *matHeaderCellDef> Edit </th>
+                    <td mat-cell *matCellDef="let myReview">
+                        <button mat-icon-button color="accent" (click)="editReview(myReview)">
+                            <mat-icon class="mat-18">edit</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSize]="2" [pageSizeOptions]="[2, 4, 6, 10, 20]">
+            </mat-paginator>
+        </div>
+        <div *ngIf="showReviewForm">
+            <h4>Feedback</h4>
+            <form [formGroup]="myReviewForm" class="ml-3" (ngSubmit)="submitForm()" novalidate>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Name" formControlName="revieweeName">
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Comments</mat-label>
+                    <textarea matInput placeholder="Comments" formControlName="comments"></textarea>
+                    <mat-error *ngIf="myReviewForm.get('comments').hasError('required') && 
+                            (myReviewForm.get('comments').dirty || 
+                            myReviewForm.get('comments').touched)">
+                        Comments ae required.
+                    </mat-error>
+                </mat-form-field>
+                <div class="misc-bottom-padding">
+                    <mat-label>Rating:</mat-label>
+                    <mat-radio-group aria-label="Select an option" formControlName="rating">
+                        <mat-radio-button value="Low">Low</mat-radio-button>
+                        <mat-radio-button value="Moderate">Moderate</mat-radio-button>
+                        <mat-radio-button value="High">High</mat-radio-button>
+                        <mat-radio-button value="Extrordinary">Extrordinary</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="button-wrapper">
+                    <button mat-flat-button color="primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+
+
+    </div>
