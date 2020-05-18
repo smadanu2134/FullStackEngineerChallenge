@@ -27,10 +27,6 @@ Run Maven command from the workspace directory and deploy the war file in tomcat
   
   Developed Rest APIs using Spring Boot. See below for request 
   
- # Admin Login
- * UserName: admin
- * Password: password
-  
   Http Request -> Spring Security(JWT Authentication)-> RestController -> Service -> DAO -> DB
   
   Once the request comes, JwtRequestFilter will check for the Jwt token and autherizes the request to pass it to Rest controller, 
