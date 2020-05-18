@@ -19,13 +19,19 @@
   
   MyReviews: Edit Review assigned to the user and complete it.
   Manage Employee: Add/Modify/Delete are implemented.
-  ManageEmployee Reviews: Add feedback, Add participants fot the review created for , Display Reviews based on the selection.
+  ManageEmployee Reviews: Add feedback, Add participants fot the review created for , Display Reviews based on the selection.[*Partially Implemented*]
   
  # Limitations
  
   Only Admin can create employee and password. Employee cannot change assword.
   Loading icon is not implemented.
   Auth Guards are not implemeted for Routes.
-  Validations are implemented completely.
+  Validations are not implemented completely.
   Duplicate Feedbacks/Duplicate review assignments and assign the feedback
+  
+ # Admin Login
+ * UserName: admin
+ * Password: password
+ 
+	
   
